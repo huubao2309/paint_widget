@@ -12,6 +12,7 @@ class PaintEventDemoState extends State<PaintEventDemo> {
 
   @override
   Widget build(BuildContext context) {
+    double widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
           title: Text("Paint Event Demo"),
@@ -53,6 +54,8 @@ class PaintEventDemoState extends State<PaintEventDemo> {
                 if (isPaintBackgroud) {
                   final Paint paint = Paint();
                   paint.color = Colors.blue;
+                  offset = offset + Offset(5, -5);
+                  size = Size(widthScreen, 50);
                   context.canvas.drawRect(offset & size, paint);
                 }
               },
